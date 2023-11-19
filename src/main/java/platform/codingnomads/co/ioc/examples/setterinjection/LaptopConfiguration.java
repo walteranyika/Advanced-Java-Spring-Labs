@@ -16,4 +16,9 @@ public class LaptopConfiguration {
     public OS os() {
         return new OS("ubuntu");
     }
+
+    @Bean
+    public HardDrive hardDrive(){
+        return  new HardDrive("Toshiba", 500);
+    }
 }

@@ -8,6 +8,8 @@ public class Laptop {
     private Processor processor;
     private OS os;
 
+    private  HardDrive hardDrive;
+
     @Autowired
     public void setProcessor(Processor processor) {
         this.processor = processor;
@@ -18,8 +20,13 @@ public class Laptop {
         this.os = os;
     }
 
+    @Autowired
+    public  void setHardDrive(HardDrive hardDrive){
+        this.hardDrive = hardDrive;
+    }
+
     public String printLaptopConfiguration() {
         return "processor: " + processor.getCore() + " core " + processor.getName() +
-                "\nOS: " + os.getName();
+                "\nOS: " + os.getName() + "\nHardDrive "+hardDrive.getSize()+ "GB";
     }
 }

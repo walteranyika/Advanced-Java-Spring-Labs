@@ -13,7 +13,10 @@ public class CodingNomad {
     private final Framework framework;
 
     public String createAwesomeSoftware() {
-        return MessageFormat.format("This awesome Software has been created using \nIDE {0}:{1}, \nJDK {2}:{3}, \nFramework {4}:{5}",
-                ide.getName(), ide.getVersion(), jdk.getName(), jdk.getVersion(), framework.getName(), framework.getVersion());
+        return MessageFormat.format("This awesome Software has been created using " +
+                        "\nIDE {0}:{1}, \nJDK {2}:{3}, \nFramework {4}:{5}",
+                ide.getName(), ide.getVersion(),
+                jdk.getName(), jdk.getVersion(),
+                framework.getName(), framework.getVersion());
     }
 }

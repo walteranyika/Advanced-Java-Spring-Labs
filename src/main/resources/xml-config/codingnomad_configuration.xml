@@ -18,5 +18,9 @@
         <property name="name" value="OpenJDK"/>
         <property name="version" value="11"/>
     </bean>
+    <bean id="aiTool" class="platform.codingnomads.co.corespring.examples.application_context.xml.AItool">
+        <property name="name" value="Chat GPT"/>
+        <property name="version" value="4"/>
+    </bean>
 
 </beans>

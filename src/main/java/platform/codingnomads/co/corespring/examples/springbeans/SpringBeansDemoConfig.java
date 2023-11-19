@@ -11,4 +11,9 @@ public class SpringBeansDemoConfig {
     public Address address() {
         return new Address("Main Street", 1500);
     }
+
+    @Bean
+    public Profile profile() {
+        return new Profile("Java", 1);
+    }
 }

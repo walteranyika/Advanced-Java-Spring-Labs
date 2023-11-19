@@ -11,7 +11,10 @@ public class SpringDeveloper {
 
     private Address address;
 
-    public SpringDeveloper(Address address) {
+    private Profile profile;
+
+    public SpringDeveloper(Address address, Profile profile) {
         this.address = address;
+        this.profile = profile;
     }
 }

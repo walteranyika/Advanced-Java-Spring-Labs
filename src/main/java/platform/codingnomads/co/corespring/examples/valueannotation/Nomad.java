@@ -36,6 +36,9 @@ public class Nomad {
     @Value("#{${database.values}}")
     private Map<String, String> databaseValues;
 
+
+    @Value("${nomad.speciality}")
+    private String speciality;
     public String nomadIdentity() {
         return name.concat(" ").concat(age.toString());
     }

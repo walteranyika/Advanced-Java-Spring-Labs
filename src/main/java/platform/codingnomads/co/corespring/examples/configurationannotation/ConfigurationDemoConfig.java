@@ -12,4 +12,7 @@ public class ConfigurationDemoConfig {
     public SampleClass sampleClass() {
         return new SampleClass();
     }
+
+    @Bean
+    public  Earth earth(){return new Earth();}
 }

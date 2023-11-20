@@ -10,6 +10,9 @@ public class AnnotationParsingDemo {
                 if (method.isAnnotationPresent(ModernInfo.class)) {
                     ModernInfo modernInfo = method.getAnnotation(ModernInfo.class);
                     System.out.println("Info Received: " + modernInfo.info());
+                } else if (method.isAnnotationPresent(SecondaryData.class)) {
+                    SecondaryData secondaryData = method.getAnnotation(SecondaryData.class);
+                    System.out.println("Secondary :"+secondaryData.data());
                 }
             }
         } catch (Exception e) {

@@ -19,4 +19,14 @@ public class SampleBean {
         System.out.println("time to @PreDestroy and head home..");
     }
 
+
+    @PostConstruct
+    public void duringBeanInit(){
+        System.out.println("This method is being called during bean creation");
+    }
+
+    @PreDestroy
+    public void justBeforeDestroyingBean(){
+        System.out.println("Just before destroying this bean");
+    }
 }

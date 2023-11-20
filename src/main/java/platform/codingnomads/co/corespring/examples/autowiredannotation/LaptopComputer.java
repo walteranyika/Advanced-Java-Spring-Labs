@@ -7,15 +7,9 @@ import org.springframework.stereotype.Component;
 
 @Component
 @ToString
-public class DesktopComputer {
+public class LaptopComputer {
 
+    @Qualifier("asusRam")
     @Autowired
-    @Qualifier("radeon")
-    private VideoCard videoCard;
-
-    @Qualifier("samsungRam")
-    @Autowired
-    private Memory memory;
-
-
+    Memory memory;
 }

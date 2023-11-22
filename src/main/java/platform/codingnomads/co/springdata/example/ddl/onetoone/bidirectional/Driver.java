@@ -29,4 +29,7 @@ public class Driver {
             cascade = CascadeType.PERSIST
     )
     private Car car;
+
+    @OneToOne(fetch = FetchType.EAGER, optional = false, cascade = CascadeType.PERSIST)
+    private  Licence licence;
 }

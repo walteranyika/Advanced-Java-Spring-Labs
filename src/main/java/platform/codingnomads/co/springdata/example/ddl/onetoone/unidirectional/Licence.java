@@ -1,26 +1,27 @@
 package platform.codingnomads.co.springdata.example.ddl.onetoone.unidirectional;
 
-import lombok.*;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
-@Table(name = "drivers")
+@Table(name = "licenses")
 @NoArgsConstructor
 @Getter
 @Setter
-public class Driver {
-
+public class Licence {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(nullable = false, updatable = false)
-    private String name;
+    @Column(unique = true)
+    private String number;
 
-    @OneToOne
-    private Car car;
+    private Date expiryDate;
 
-    @OneToOne(optional = false)
-    private Licence licence;
+
 }

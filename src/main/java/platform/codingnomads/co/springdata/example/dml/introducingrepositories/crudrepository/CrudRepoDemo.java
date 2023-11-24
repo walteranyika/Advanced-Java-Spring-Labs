@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Optional;
 
 @SpringBootApplication
@@ -25,10 +26,14 @@ public class CrudRepoDemo implements CommandLineRunner {
         //create new user
         User user = User.builder().firstName("Bobby").lastName("Bobbert").age(56).build();
         User user2 = User.builder().firstName("Joanne").lastName("Joanna").age(36).build();
+        User user3 = User.builder().firstName("Tom").lastName("Jankins").age(19).build();
+        User user4 = User.builder().firstName("Hellen").lastName("Crons").age(23).build();
 
         //save user and assign what is returned to the user variable.
         user = userRepo.save(user);
         user2 = userRepo.save(user2);
+
+        userRepo.saveAll(List.of(user3, user4));
 
         Iterable<User> users = userRepo.findAll();
 

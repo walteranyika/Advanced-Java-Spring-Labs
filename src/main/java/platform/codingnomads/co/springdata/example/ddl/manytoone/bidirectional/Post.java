@@ -25,4 +25,6 @@ public class Post {
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments;
 
+    @OneToMany(mappedBy = "post")
+    private  Set<Like> likes;
 }

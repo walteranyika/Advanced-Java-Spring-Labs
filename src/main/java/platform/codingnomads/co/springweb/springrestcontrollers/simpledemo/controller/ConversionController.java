@@ -25,4 +25,15 @@ public class ConversionController {
     public String returnTheString() {
         return text;
     }
+
+
+    @RequestMapping(path = "/reverse", method = RequestMethod.GET, produces = MediaType.TEXT_PLAIN_VALUE)
+    public String reverse(){
+        char[] resultArray = text.toCharArray();
+        StringBuilder builder= new StringBuilder();
+        for (int i = resultArray.length-1; i >=0; i--) {
+            builder.append(resultArray[i]);
+        }
+        return builder.toString();
+    }
 }

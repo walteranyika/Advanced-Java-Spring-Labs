@@ -8,7 +8,9 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
+import platform.codingnomads.co.springweb.gettingdatafromclient.requestbody.models.Fruit;
 import platform.codingnomads.co.springweb.gettingdatafromclient.requestbody.models.Task;
+import platform.codingnomads.co.springweb.gettingdatafromclient.requestbody.repositories.FruitRepository;
 import platform.codingnomads.co.springweb.gettingdatafromclient.requestbody.repositories.TaskRepository;
 
 import java.net.URI;
@@ -19,6 +21,9 @@ public class TaskController {
 
     @Autowired
     TaskRepository taskRepository;
+
+    @Autowired
+    FruitRepository fruitRepository;
 
     @PostMapping(value = "/api/tasks", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Task> createTask(@RequestBody(required = true) Task task) throws URISyntaxException {
@@ -47,5 +52,14 @@ public class TaskController {
         } else {
             return ResponseEntity.ok().body(message);
         }
+    }
+
+    @PostMapping(value = "/fruits")
+    public ResponseEntity<?> saveFruit(@RequestBody Fruit fruit) throws URISyntaxException {
+        if (fruit.getName()==null){
+            return ResponseEntity.badRequest().body(fruit);
+        }
+        Fruit fruit1 = fruitRepository.save(fruit);
+        return  ResponseEntity.created(new URI("/api/tasks/fruits/"+fruit1.getId())).body(fruit1);
     }
 }

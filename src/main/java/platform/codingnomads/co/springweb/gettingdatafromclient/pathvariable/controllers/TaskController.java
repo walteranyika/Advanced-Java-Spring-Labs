@@ -48,5 +48,17 @@ public class TaskController {
     public String pathVariableIsNotEncoded(@PathVariable String name) {
         return name;
     }
+
+    @DeleteMapping("/{id}")
+    public String deleteTask(@PathVariable(required = false) Long id){
+       return  "Deleted task with id "+id;
+    }
+
+    @PatchMapping("/{id}/{title}")
+    public String updateTask(@PathVariable Map<String, String> paramsMap){
+        String title = paramsMap.get("title");
+        Long id = Long.valueOf(paramsMap.get("id"));
+        return String.format("Updated Task with %d to new title %s", id, title);
+    }
 }
 

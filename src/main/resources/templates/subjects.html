@@ -3,29 +3,43 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Spring Boot Thymeleaf Application</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap-css/bootstrap.min.css}">
 </head>
 <body>
-<h1>Creating a table using Thymeleaf</h1>
 
-<table border="1">
-    <tr th:each="subject: ${subjects}">
-        <td th:text="${subject.name}" />
-        <td th:text="${subject.category}" />
-        <td>
-            <span th:if="${subject.name} == 'Java'" th:text="Java" />
-            <span th:unless="${subject.name} == 'Java'" th:text="Other" />
 
-        </td>
-    </tr>
-</table>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-8">
+            <h3>Creating a table using Thymeleaf</h3>
+            <table class="table table-striped">
+                <tr>
+                    <th>Subject</th>
+                    <th>Category</th>
+                    <th>Language</th>
+                </tr>
+                <tr th:each="subject: ${subjects}">
+                    <td th:text="${subject.name}" />
+                    <td th:text="${subject.category}" />
+                    <td>
+                        <span th:if="${subject.name} == 'Java'" th:text="Java" />
+                        <span th:unless="${subject.name} == 'Java'" th:text="Other" />
 
-<h1>Creating a list using Thymeleaf</h1>
+                    </td>
+                </tr>
+            </table>
 
-<ul>
-    <li th:each="subject : ${subjects}"
-        th:text=${subject.name}>
-    </li>
-</ul>
+            <h3>Creating a list using Thymeleaf</h3>
 
+            <ul class="list-group">
+                <li class="list-group-item" th:each="subject : ${subjects}"
+                    th:text=${subject.name}>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script th:src="@{/js/bootstap-js/bootstrap.bundle.js}"></script>
 </body>
 </html>
